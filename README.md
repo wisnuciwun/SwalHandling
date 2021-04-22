@@ -6,7 +6,7 @@
 
 :rice: Requirement :
 - reactstrap
-- any version of Fontawesome icon (recommended)
+- sweetalert2 (i am using 10.16.0 version)
 
 
 :eyes: Usage :
