@@ -5,7 +5,6 @@
 ```
 
 :rice: Requirement :
-- reactstrap
 - sweetalert2 (i am using 10.16.0 version)
 
 
