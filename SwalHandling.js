@@ -1,5 +1,6 @@
 import Swal from 'sweetalert2'
-import { RequestHandler } from '../../helpers'
+import Axios from 'axios';
+//import your loadinghandling here if necessary
 
 export function ErrorHandling(props = "") {
   
@@ -56,7 +57,7 @@ export function SuccessHandling(props = "") {
       )
 }
 
-export function QuestionHandling(url, data, msg = "", switchView, postEmail) {
+export function QuestionHandling(url, data, msg = "", myFunction) {
     Swal.hideLoading()
     Swal.fire({
       title: 'Are you sure?',
@@ -76,7 +77,15 @@ export function QuestionHandling(url, data, msg = "", switchView, postEmail) {
     })
     .then(res => {
       if(res.value){
-        // Type your command here if user hit confirm button
+        // Type your command here after user hit confirm button
+        
+        Axios.post(url, data)
+        .then(
+          LoadingHandling() // if necessary, see my repo for this loading https://github.com/wisnuciwun/LoadingScreen
+          SuccesHandling(msg)
+          myFunction() // remove this if you dont need it
+        )
+        .catch(err => ErrorHandling(err))
       }
     })
   }
